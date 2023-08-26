@@ -37,18 +37,19 @@ class MenuItemViewModel:ObservableObject{
         // Get Reference
         let db = Firestore.firestore()
         
-        // Fetch data for the specified date
+        // Fetch data
         db.collection("menuItems").getDocuments { snapshot, error in
+           
             // No error
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
                         
                         self.MenuItems = snapshot.documents.compactMap { d in
-                            print("Document Data: \(d.data())") // Print the whole document data
+                            print("Document Data: \(d.data())")
 
                             let name = d["name"] as? String ?? ""
-                            print("Name from Document: \(name)") // Print the name
+                            print("Name from Document: \(name)")
 
                             // Mapping
                             return MenuItem(
@@ -60,7 +61,7 @@ class MenuItemViewModel:ObservableObject{
                                 imageURL: d["imageURL"] as? String ?? ""
                             )
                         }
-                        print("Mapped Menu Items: \(self.MenuItems)") // Print the final array of menu items
+                        print("Mapped Menu Items: \(self.MenuItems)")
 
                         
                     }
@@ -68,7 +69,7 @@ class MenuItemViewModel:ObservableObject{
             }
             // Error is true
             else {
-                // Handle Error
+                // I'll Handle later with a user alert
             }
         }
         
