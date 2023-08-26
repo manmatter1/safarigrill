@@ -18,9 +18,9 @@ struct TestImageView: View {
         if let uiImage = imageLoader.image {
              uiImage
                 .resizable()
-                .scaledToFit() // Add any modifiers you need for the image
+                .scaledToFit()
         } else {
-            Text("Loading") // Replace with your placeholder image
+            Text("Not Loading for arryn test")
         }
     }
 }

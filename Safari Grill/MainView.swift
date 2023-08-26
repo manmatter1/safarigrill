@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//this should be on my branch?
 
 struct MainView: View {
     @ObservedObject var MenuItemViewModelLocal = MenuItemViewModel()
@@ -53,7 +53,7 @@ struct MenuItemView: View {
                         .clipped()
                         .cornerRadius(15)
                 } else {
-                    // Placeholder image or view while the image is loading
+                    
                     Image("placeholder")
                         .resizable()
                         .scaledToFill()
@@ -94,7 +94,7 @@ struct MenuItemView: View {
                 extended.toggle()
             }
         })
-        .frame(height: extended ? 800 : 400) // Adjust this to fit your layout
+        .frame(height: extended ? 800 : 400)
     }
 }
 
